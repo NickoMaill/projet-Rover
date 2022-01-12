@@ -21,36 +21,65 @@ let rover = {
 };
 
 console.table(grid);
+
 //création des fonctions de direction gauche (W) et droite (E)
 
-function turnLeft(left) {
-    switch (left) {
+function turnLeft(rover) {
+    switch (rover.direction) {
         case "W":
-            console.log("W");
+            rover.direction = "W";
+            break;
+            
+        case "S":
+            rover.direction = "S";
+            break;
+
+		case "E":
+			rover.direction = "E";
+			break;
+        
+        case "N":
+            rover.direction = "N";
             break;
     
         default:
-            console.log(rover.direction);
+            console.log("sorry", `${rover}`, "is not a direction...");
     }
-}
+    console.log(rover.direction);
+};
 
-turnLeft("W")
+turnLeft(rover)
 
-function turnRight(right) {
-    switch (right) {
+function turnRight(rover) {
+    switch (rover.direction) {
         case "E":
-            console.log("E");
+            break;
+            rover.direction = "E";
+            
+        case "S":
+            rover.direction = "S";
+            break;
+
+		case "W":
+			rover.direction = "W";
+			break;
+        
+        case "N":
+            rover.direction = "N";
             break;
     
         default:
-            console.log(rover.direction);
+            console.log("sorry", `${rover}`, "is not a direction...");
     }
-}
+    console.log(rover.direction);
+};
 
-turnRight("E")
-
+turnRight(rover)
 
 //création d'une fonction pour faire avancer le rover
 
+// function moveForward(rover) {
+    
+// }
 
 
