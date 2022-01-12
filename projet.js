@@ -1,3 +1,5 @@
+//declaration de la grille et du rover
+
 const grid = [
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
 	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
@@ -13,21 +15,42 @@ const grid = [
 
 let rover = {
     direction: "N",
-    
+    x: 0,
+	y: 0,
+
 };
 
-function turnLeft(rover) {
-    if (rover === "W") {
-        console.log(rover.direction = "W");
-    } else {console.log("not a direction");}
-};
+console.table(grid);
+//création des fonctions de direction gauche (W) et droite (E)
+
+function turnLeft(left) {
+    switch (left) {
+        case "W":
+            console.log("W");
+            break;
+    
+        default:
+            console.log(rover.direction);
+    }
+}
 
 turnLeft("W")
 
-function turnRight(rover) {
-    if (rover === "E") {
-        console.log(rover.direction = "E");
-    } else {console.log("not a direction");}
- }
+function turnRight(right) {
+    switch (right) {
+        case "E":
+            console.log("E");
+            break;
+    
+        default:
+            console.log(rover.direction);
+    }
+}
 
- turnRight("E")
+turnRight("E")
+
+
+//création d'une fonction pour faire avancer le rover
+
+
+
