@@ -135,7 +135,7 @@ function pilotRover(str) {
         };
 
     };
-
+    //journal de bord 
     console.log("x = ", rover.x, "y = ", rover.y);
 
     console.table(grid);
