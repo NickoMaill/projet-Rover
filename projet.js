@@ -28,25 +28,25 @@ function turnLeft(rover) {
 
     switch (rover.direction) {
         case "W":
-            rover.direction = "W";
-            break;
-
-        case "S":
             rover.direction = "S";
             break;
 
-        case "E":
+        case "S":
             rover.direction = "E";
             break;
 
-        case "N":
+        case "E":
             rover.direction = "N";
+            break;
+
+        case "N":
+            rover.direction = "W";
             break;
 
         default:
             console.log("sorry", `${rover}`, "is not a direction...");
     }
-    // grid[0][0] = rover.direction;
+     grid[rover.y][rover.x] = rover.direction;
     //console.table(grid);
 };
 
@@ -55,26 +55,26 @@ function turnLeft(rover) {
 function turnRight(rover) {
     switch (rover.direction) {
         case "E":
-            rover.direction = "E";
-            break;
-
-        case "S":
             rover.direction = "S";
             break;
 
-        case "W":
+        case "S":
             rover.direction = "W";
             break;
 
-        case "N":
+        case "W":
             rover.direction = "N";
+            break;
+
+        case "N":
+            rover.direction = "E";
             break;
 
         default:
             console.log("sorry", `${rover}`, "is not a direction...");
     }
-    grid[0][0] = rover.direction;
-    console.table(grid)
+    grid[rover.y][rover.x] = rover.direction;
+    //console.table(grid)
 };
 
 //turnRight(rover)
@@ -92,41 +92,36 @@ function moveForward(rover) {
 //moveForward(rover)
 
 function pilotRover(str) {
+    let strSplit = str.split("");
+    //console.log(strSplit);
 
     //boucle des fonctions
-    for (i = 0; i < 1; i++) {
 
-        // boucle de turnLeft
-        for (i = 0; i < 1; i++) {
-            const arrayLeft = ["N", "W", "S", "E"];
-            let arrayIndex = arrayLeft.indexOf("N")
-            if (str === "l" && arrayIndex === 0) {
-                arrayIndex += 1;
-                rover.direction = "W";
-                turnLeft(rover);
-                grid[rover.x][rover.y] = rover.direction;
+    for (i = 0; i <= strSplit.length; i++) {
+        // console.log(strSplit);
 
-            } else if (str === "l" && arrayIndex === 1) {
-                arrayIndex += 2;
-                rover.direction = "S";
-                turnLeft(rover);
-                grid[rover.x][rover.y] = rover.direction;
-            }
-            console.table(grid)
+        switch (strSplit[i]) {
+            case "r":
+                turnRight(rover);
+                break;
+
+            case "l":
+                turnLeft(rover)
+                break;
+
+            //case "f":
+              //  moveForward(rover)
+                //break;
+
+            default: 
+            
+                break;
         }
-        //Boucle de turnRight
-        // for () {
 
-        // }
+    };
+    
+    console.table(grid);
 
-        // //boucle de moveForward
-        // for () {
+}
 
-        // }
-
-    }
-
-};
-
-pilotRover("l");
-
+pilotRover("rrrllll");
