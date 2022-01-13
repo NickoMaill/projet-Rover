@@ -17,6 +17,7 @@ let rover = {
     direction: "N",
     x: 0,
     y: 0,
+    travelLog: [],
 
 };
 
@@ -113,6 +114,7 @@ function moveForward(rover) {
 function pilotRover(str) {
     let strSplit = str.split("");
 
+
     for (i = 0; i < strSplit.length; i++) {
 
         switch (strSplit[i]) {
@@ -134,8 +136,11 @@ function pilotRover(str) {
 
     };
 
-    console.table(grid);
+    console.log("x = ", rover.x, "y = ", rover.y);
 
+    console.table(grid);
 };
 
-pilotRover("rfrf");
+
+pilotRover("rfrflfrfrflf");
+
