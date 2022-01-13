@@ -46,7 +46,7 @@ function turnLeft(rover) {
         default:
             console.log("sorry", `${rover}`, "is not a direction...");
     }
-     grid[rover.y][rover.x] = rover.direction;
+    grid[rover.y][rover.x] = rover.direction;
     //console.table(grid);
 };
 
@@ -81,13 +81,37 @@ function turnRight(rover) {
 
 //création d'une fonction pour faire avancer le rover
 
+// function moveForward(rover) {
+//     if ((rover.x >= 0 && rover.x <= 9) && (rover.y >= 0 && rover.y <= 9)) {
+//         grid[rover.y][rover.x] = rover.direction;
+//         //console.table(grid)
+//     };
+
+// }
+
 function moveForward(rover) {
-    if ((rover.x >= 0 && rover.x <= 9) && (rover.y >= 0 && rover.y <= 9)) {
-        grid[rover.y][rover.x] = rover.direction;
-        console.table(grid)
+    switch (rover.direction) {
+        case turnLeft():
+            rover.y -= 1;
+            break;
+
+        case "W":
+            rover.x -= 1;
+            break;
+
+        case "E":
+            rover.x += 1;
+            break;
+
+        case "S":
+            rover.y += 1;
+            break;
+
+        default:
+            break;
     };
 
-}
+};
 
 //moveForward(rover)
 
@@ -109,19 +133,19 @@ function pilotRover(str) {
                 turnLeft(rover)
                 break;
 
-            //case "f":
-              //  moveForward(rover)
-                //break;
+            case "f":
+                moveForward(rover)
+                break;
 
-            default: 
-            
+            default:
+
                 break;
         }
 
     };
-    
-    console.table(grid);
+
+    //console.table(grid);
 
 }
 
-pilotRover("rrrllll");
+//pilotRover("rf");
