@@ -20,9 +20,7 @@ let rover = {
 
 };
 
-//console.table(grid);
-
-//création des fonctions de direction gauche (W) et droite (E)
+//création des fonctions de direction gauche et droite 
 
 function turnLeft(rover) {
 
@@ -47,7 +45,6 @@ function turnLeft(rover) {
             console.log("sorry", `${rover}`, "is not a direction...");
     }
     grid[rover.y][rover.x] = rover.direction;
-    //console.table(grid);
 };
 
 //turnLeft(rover)
@@ -74,31 +71,17 @@ function turnRight(rover) {
             console.log("sorry", `${rover}`, "is not a direction...");
     }
     grid[rover.y][rover.x] = rover.direction;
-    //console.table(grid)
 };
 
 //turnRight(rover)
 
 //création d'une fonction pour faire avancer le rover
 
-// function moveForward(rover) {
-//     if ((rover.x >= 0 && rover.x <= 9) && (rover.y >= 0 && rover.y <= 9)) {
-//         grid[rover.y][rover.x] = rover.direction;
-//         //console.table(grid)
-//     };
-
-// }
-
 function moveForward(rover) {
+
+    grid[rover.y][rover.x] = " ";
+
     switch (rover.direction) {
-        case turnLeft():
-            rover.y -= 1;
-            break;
-
-        case "W":
-            rover.x -= 1;
-            break;
-
         case "E":
             rover.x += 1;
             break;
@@ -107,22 +90,30 @@ function moveForward(rover) {
             rover.y += 1;
             break;
 
+        case "W":
+            rover.x -= 1;
+            break;
+
+        case "N":
+            rover.y -= 1;
+            break;
+
         default:
             break;
     };
+
+    grid[rover.y][rover.x] = rover.direction;
 
 };
 
 //moveForward(rover)
 
+//Création d'une boucle pour piloter plus efficacement le Rover
+
 function pilotRover(str) {
     let strSplit = str.split("");
-    //console.log(strSplit);
 
-    //boucle des fonctions
-
-    for (i = 0; i <= strSplit.length; i++) {
-        // console.log(strSplit);
+    for (i = 0; i < strSplit.length; i++) {
 
         switch (strSplit[i]) {
             case "r":
@@ -138,14 +129,13 @@ function pilotRover(str) {
                 break;
 
             default:
-
                 break;
-        }
+        };
 
     };
 
-    //console.table(grid);
+    console.table(grid);
 
-}
+};
 
-//pilotRover("rf");
+pilotRover("rfrf");
