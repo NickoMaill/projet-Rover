@@ -1,22 +1,22 @@
 //declaration de la grille et du rover
 
 const grid = [
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
-	[" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "],
+    [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 ];
 
 let rover = {
     direction: "N",
     x: 0,
-	y: 0,
+    y: 0,
 
 };
 
@@ -30,19 +30,19 @@ function turnLeft(rover) {
         case "W":
             rover.direction = "W";
             break;
-            
+
         case "S":
             rover.direction = "S";
             break;
 
-		case "E":
-			rover.direction = "E";
-			break;
-        
+        case "E":
+            rover.direction = "E";
+            break;
+
         case "N":
             rover.direction = "N";
             break;
-    
+
         default:
             console.log("sorry", `${rover}`, "is not a direction...");
     }
@@ -57,23 +57,23 @@ function turnRight(rover) {
         case "E":
             rover.direction = "E";
             break;
-            
+
         case "S":
             rover.direction = "S";
             break;
 
-		case "W":
-			rover.direction = "W";
-			break;
-        
+        case "W":
+            rover.direction = "W";
+            break;
+
         case "N":
             rover.direction = "N";
             break;
-    
+
         default:
             console.log("sorry", `${rover}`, "is not a direction...");
     }
-     grid[0][0] = rover.direction;
+    grid[0][0] = rover.direction;
     console.table(grid)
 };
 
@@ -82,24 +82,47 @@ function turnRight(rover) {
 //création d'une fonction pour faire avancer le rover
 
 function moveForward(rover) {
-    if ((rover.x >= 0 && rover.x <= 9  ) && ( rover.y >= 0 && rover.y <= 9)) {
-        grid[rover.x][rover.y] = rover.direction;
+    if ((rover.x >= 0 && rover.x <= 9) && (rover.y >= 0 && rover.y <= 9)) {
+        grid[rover.y][rover.x] = rover.direction;
         console.table(grid)
     };
-    
+
 }
 
 //moveForward(rover)
 
 function pilotRover(str) {
-    switch (str) {
-        case "l":
-            turnLeft(rover.direction = "W")
-            break;
-    
-        default:
-            break;
+
+    //boucle des fonctions
+    for (i = 0; i < 1; i++) {
+
+        // boucle de turnLeft
+        for (i = 0; i < 1; i++) {
+            if (str === "l") {
+                let arrayLeft = ["N", "W", "S", "E"];
+                arrayLeft.indexOf("W") = rover.direction;
+                turnLeft(rover)
+                grid[rover.x][rover.y] = rover.direction;
+            // } else if (str === "l"){
+            //     rover.direction = "S"
+            //     turnLeft(rover)
+            //     grid[rover.x][rover.y] = rover.direction;
+            }
+            console.table(grid)
+        }
+        //Boucle de turnRight
+        // for () {
+
+        // }
+
+        // //boucle de moveForward
+        // for () {
+
+        // }
+
     }
 
+};
 
-}
+pilotRover("l");
+
