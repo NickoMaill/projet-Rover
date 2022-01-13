@@ -98,15 +98,19 @@ function pilotRover(str) {
 
         // boucle de turnLeft
         for (i = 0; i < 1; i++) {
-            if (str === "l") {
-                let arrayLeft = ["N", "W", "S", "E"];
-                arrayLeft.indexOf("W") = rover.direction;
-                turnLeft(rover)
+            const arrayLeft = ["N", "W", "S", "E"];
+            let arrayIndex = arrayLeft.indexOf("N")
+            if (str === "l" && arrayIndex === 0) {
+                arrayIndex += 1;
+                rover.direction = "W";
+                turnLeft(rover);
                 grid[rover.x][rover.y] = rover.direction;
-            // } else if (str === "l"){
-            //     rover.direction = "S"
-            //     turnLeft(rover)
-            //     grid[rover.x][rover.y] = rover.direction;
+
+            } else if (str === "l" && arrayIndex === 1) {
+                arrayIndex += 2;
+                rover.direction = "S";
+                turnLeft(rover);
+                grid[rover.x][rover.y] = rover.direction;
             }
             console.table(grid)
         }
