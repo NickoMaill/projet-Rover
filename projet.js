@@ -1,3 +1,8 @@
+const { table } = require("console");
+let prompt = require("prompt");
+
+prompt.start();
+
 //declaration de la grille et du rover
 
 const grid = [
@@ -141,6 +146,7 @@ function pilotRover(str) {
     console.table(grid);
 };
 
+console.table(
+    pilotRover(process.argv[2])
 
-pilotRover("rfrflfrfrflf");
-
+);
