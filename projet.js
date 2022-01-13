@@ -14,8 +14,8 @@ const grid = [
 ];
 
 let rover = {
-    direction: "W",
-    x: 1,
+    direction: "N",
+    x: 0,
 	y: 0,
 
 };
@@ -55,8 +55,8 @@ function turnLeft(rover) {
 function turnRight(rover) {
     switch (rover.direction) {
         case "E":
-            break;
             rover.direction = "E";
+            break;
             
         case "S":
             rover.direction = "S";
@@ -73,7 +73,8 @@ function turnRight(rover) {
         default:
             console.log("sorry", `${rover}`, "is not a direction...");
     }
-    // grid[0][0] = rover.direction;
+     grid[0][0] = rover.direction;
+    console.table(grid)
 };
 
 //turnRight(rover)
@@ -90,12 +91,15 @@ function moveForward(rover) {
 
 //moveForward(rover)
 
-// function pilotRover(str) {
-//     for (let i = str; i <; i++) {
-        
-        
-//     }
-// }
+function pilotRover(str) {
+    switch (str) {
+        case "l":
+            turnLeft(rover.direction = "W")
+            break;
+    
+        default:
+            break;
+    }
 
 
-
+}
