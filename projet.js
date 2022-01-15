@@ -106,10 +106,10 @@ function moveForward(rover) {
 
         default:
             break;
-    };
-
-    grid[rover.y][rover.x] = rover.direction;
-
+        };
+        grid[rover.y][rover.x] = rover.direction;
+        
+        
 };
 
 //moveForward(rover)
